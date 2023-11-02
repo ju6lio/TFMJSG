@@ -2,8 +2,8 @@
 
 ## Prueba 1 Bactopia
 
- ***Vamos a ensamblar una cepa utilizando el pipeline bactopia
-
- conda activate bactopia
+  ***Vamos a ensamblar una cepa utilizando el pipeline bactopia
+  
+  conda activate bactopia
 
   
