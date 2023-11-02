@@ -28,3 +28,6 @@
 
     ***Se ensambla correctamente después de esto, tiene un genoma ensamblado de calidad, además está el output del ARMfinder, está anotado en el PROKKA. En este caso tenemos todo el genoma en 27 contings que nos indica calidad y además son contings de gran tamaño
 
+## Prueba 2 Bactopia
+
+   ***Vamos a ensamblar la misma cepa pero en este caso vamos a intentar utilizar los modulos específicos de S. pneumoniae
