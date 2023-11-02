@@ -47,8 +47,19 @@
 
 ## Prueba 3 Bactopia
 
+    ***Ahora vamos a meterle más de un input, en la documentación viene que tenemos que crear un archivo FOFN
 
-    
+    ***Bactopia tiene una herramienta integrada que te crea el archivo FOFN (delimitado por tabuladores) con la información de tus archivos fasta. ASi que lo primero es preparar el archivo FOFN:
+
+     bactopia prepare --path Desktop/Wgs/prueba3s8/ --fastq-ext '_001.fastq.gz' --genome-size 2000000 --species "Streptococcus pneumoniae" > Desktop/Wgs/prueba3s8/prueba3s8.txt
+
+     ***YA tenemos creado nuestro archivo FOFN, podremos correr bactopia de varias cepas
+
+     bactopia --samples Desktop/Wgs/prueba3s8/prueba3s8.txt --ask_merlin
+
+     
+
+
 
 
     
