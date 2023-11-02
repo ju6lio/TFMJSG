@@ -30,4 +30,25 @@
 
 ## Prueba 2 Bactopia
 
-   ***Vamos a ensamblar la misma cepa pero en este caso vamos a intentar utilizar los modulos específicos de S. pneumoniae
+    ***Vamos a ensamblar la misma cepa pero en este caso vamos a intentar utilizar los modulos específicos de S. pneumoniae
+
+    ***Se intentaron utilizar las herramientas por separado pero con el input de una sola cepa no sale, posteriormente me doy cuenta que si en el workflow general del ensamblaje activo merlin
+    ***además del ensamblaje y todas las herramientas que ya utilizaba,manda a identificar el genero de la bacteria del input, y al identificarla como Streptococcus hará directamente 
+    ***el analisis directo de especie (correrá también el modulo de emmtyper de S. pyogenes pero nos da igual, porque correr el pbptyper el seroba y pneumocat de neumo).
+
+    bactopia --wf seroba --bactopia Desktop/Wgs/pruebas8/PRUEBA9SP/ --sample PRUEBA9SP 
+    ***aquí no reconocía los archivos aunque se utilizan los comandos especificados en la información del programa
+
+    ***Vamos a realizar el comando de antes, pero esta vez añadimos --ask_merlin, que llamará al programa, hará identificación de género y correrá herramientas específicas.
+
+    bactopia --r1 Desktop/Wgs/prueba2s8/5027_S47_R1_001.fastq.gz --r2 Desktop/Wgs/prueba2s8/5027_S47_R2_001.fastq.gz  --sample PRUEBA2SPS8 --genome_size 2000000 --ask_merlin --outdir Desktop/Wgs/prueba2s8/
+
+    ***Todos los outputs salen bien, nos da el serotipo correcto (serotipo 8) y hasta el tipado de las PBPs
+
+## Prueba 3 Bactopia
+
+
+    
+
+
+    
