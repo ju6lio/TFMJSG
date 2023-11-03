@@ -65,7 +65,14 @@
      ***Tarda en ensamblarse las tres cepas 11 minutos, muy poco tiempo. En este caso tenemos el output directory correcto, lo que observo es que seroba solo aparece un dato, no aparece dato por cepa en merged results y además en pneumocat no aparece merged results. Le voy a preguntar a Aida
 
 
-     
+## Prueba 4 Bactopia
+
+   ***Bactopia no incluye gubbins, pero incluye una aplicación llamada mashtree que te crea el árbol de distancias a partir de la distancia mash que calcula el pipeline. Podemos probar con las tres cepas a ver cómo funciona esta herramienta
+
+   bactopia --wf mashtree --bactopia Desktop/Wgs/prueba3s8/ --include Desktop/Wgs/prueba3s8/prueba3s8.txt --outdir Desktop/Wgs
+
+   ***En un visor de genomas vemos que nos crea el archivo del árbol sin problema 
+
 
 
      
