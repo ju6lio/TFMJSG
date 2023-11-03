@@ -67,11 +67,12 @@
 
 ## Prueba 4 Bactopia
 
-   ***Bactopia no incluye gubbins, pero incluye una aplicación llamada mashtree que te crea el árbol de distancias a partir de la distancia mash que calcula el pipeline. Podemos probar con las tres cepas a ver cómo funciona esta herramienta
 
-   bactopia --wf mashtree --bactopia Desktop/Wgs/prueba3s8/ --include Desktop/Wgs/prueba3s8/prueba3s8.txt --outdir Desktop/Wgs
-
-   ***En un visor de genomas vemos que nos crea el archivo del árbol sin problema 
+      ***Bactopia no incluye gubbins, pero incluye una aplicación llamada mashtree que te crea el árbol de distancias a partir de la distancia mash que calcula el pipeline. Podemos probar con las tres cepas a ver cómo funciona esta herramienta
+      
+      bactopia --wf mashtree --bactopia Desktop/Wgs/prueba3s8/ --include Desktop/Wgs/prueba3s8/prueba3s8.txt --outdir Desktop/Wgs
+      
+      ***En un visor de genomas vemos que nos crea el archivo del árbol sin problema 
 
 
 
