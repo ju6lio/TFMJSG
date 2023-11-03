@@ -1,4 +1,3 @@
-2 de noviembre de 2023
 
 ## INSTALAR BACTOPIA
 
