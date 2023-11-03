@@ -57,6 +57,16 @@
 
      bactopia --samples Desktop/Wgs/prueba3s8/prueba3s8.txt --ask_merlin
 
+     ***Se me ha olvidado poner el directorio del output. Además, no nos sale los merged results
+
+     bactopia --samples Desktop/Wgs/prueba3s8/prueba3s8.txt --ask_merlin --outdir Desktop/Wgs/prueba3s8/
+
+     ***Tarda en ensamblarse las tres cepas 11 minutos, muy poco tiempo. En este caso tenemos el output directory correcto, lo que observo es que seroba solo aparece un dato, no aparece dato por cepa en merged results y además en pneumocat no aparece merged results. Le voy a preguntar a Aida
+
+
+     
+
+
      
 
 
