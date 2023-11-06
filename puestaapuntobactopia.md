@@ -75,9 +75,14 @@
       ***En un visor de genomas vemos que nos crea el archivo del árbol sin problema 
 
 
+## Prueba 5 Bactopia
 
-     
+      ***Vamos a probar ya a ensamblar las 114 secuencias de la carrera de Novaseq que tenemos del serotipo 8, algunas de ellas muy pesadas con un coverage muy alto, pero 
 
+      bactopia --samples /media/julio/Julio\ Trabajo/WGSNM/serotipo8todas/prueba4s8.txt --ask_merlin --outdir /media/julio/Julio\ Trabajo/WGSNM/prueba4s8/
+
+      
+      
 
 
 
