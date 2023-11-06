@@ -93,6 +93,13 @@
       
       bactopia --samples /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/prueba5s8.txt  --ask_merlin --outdir /media/julio/Julio\ Trabajo/WGSNM/prueba5s8^Cwork-dir /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/work/
 
+      ***EL problema era el espacio en el nombre del disco duro, lo quitamos y ya funciona el prokka y el resto de programas que no funcionaban
+
+      bactopia prepare --path /media/julio/JulioTrabajo/WGSNM/prueba5s8 --fastq-ext '_001.fastq.gz' --genome-size 2000000 > /media/julio/JulioTrabajo/WGSNM/prueba5s8/prueba5s8.txt 
+
+
+
+
 
 
     
