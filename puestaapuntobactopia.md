@@ -58,7 +58,7 @@
 
      ***Se me ha olvidado poner el directorio del output. Además, no nos sale los merged results
 
-     actopia prepare --path Desktop/Wgs/prueba3s8/ --fastq-ext '_001.fastq.gz' --genome-size 2000000 > Desktop/Wgs/prueba3s8/prueba3s8.txt
+     bactopia prepare --path Desktop/Wgs/prueba3s8/ --fastq-ext '_001.fastq.gz' --genome-size 2000000 > Desktop/Wgs/prueba3s8/prueba3s8.txt
 
      bactopia --samples Desktop/Wgs/prueba3s8/prueba3s8.txt --ask_merlin --outdir Desktop/Wgs/prueba3s8/
 
@@ -79,10 +79,19 @@
 
       ***Vamos a probar ya a ensamblar las 114 secuencias de la carrera de Novaseq que tenemos del serotipo 8, algunas de ellas muy pesadas con un coverage muy alto, pero 
 
+      bactopia prepare --path /media/julio/Julio\ Trabajo/WGSNM/serotipo8todas/ --fastq-ext '_001.fastq.gz' --genome-size 2000000 > Desktop/Wgs/prueba4s8/prueba4s8.txt
+
+
       bactopia --samples /media/julio/Julio\ Trabajo/WGSNM/serotipo8todas/prueba4s8.txt --ask_merlin --outdir /media/julio/Julio\ Trabajo/WGSNM/prueba4s8/
 
       
+
+## Prueba 6 Bactopia
+
+     
+      bactopia prepare --path /media/julio/Julio\ Trabajo/WGSNM/prueba5s8 --fastq-ext '_001.fastq.gz' --genome-size 2000000 > /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/prueba5s8.txt 
       
+      bactopia --samples /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/prueba5s8.txt  --ask_merlin --outdir /media/julio/Julio\ Trabajo/WGSNM/prueba5s8^Cwork-dir /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/work/
 
 
 
