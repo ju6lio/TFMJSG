@@ -107,6 +107,11 @@
       ***Ya se soluciona y se ensamblan los genomas sin problema y funciona prokka, etc.
 
 
+## Prueba 7 Bactopia
+
+
+
+
 
 
 
