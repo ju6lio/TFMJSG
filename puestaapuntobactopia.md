@@ -84,16 +84,21 @@
 
       bactopia --samples /media/julio/Julio\ Trabajo/WGSNM/serotipo8todas/prueba4s8.txt --ask_merlin --outdir /media/julio/Julio\ Trabajo/WGSNM/prueba4s8/
 
+      ***El working directory es tan grande debido al peso de algunos de los reads (se montó un Novaseq con pocas cepas como proyecto piloto y tenían todas muchos reads) que la memoria del portátil (150g) se llena, tenemos que cambiar el working directory. Hay que consultar las instrucciones del nextflow
+
       
 
 ## Prueba 6 Bactopia
 
-     
+       ***  En las instrucciones de Bactopia nos indica que podemos modificar el working directory con comados de nexflow, podemos modificarlo con -work-dir y lo ponemos en el disco duro:
+       
       bactopia prepare --path /media/julio/Julio\ Trabajo/WGSNM/prueba5s8 --fastq-ext '_001.fastq.gz' --genome-size 2000000 > /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/prueba5s8.txt 
       
-      bactopia --samples /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/prueba5s8.txt  --ask_merlin --outdir /media/julio/Julio\ Trabajo/WGSNM/prueba5s8^Cwork-dir /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/work/
+      bactopia --samples /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/prueba5s8.txt  --ask_merlin --outdir /media/julio/Julio\ Trabajo/WGSNM/prueba5s8 -work-dir /media/julio/Julio\ Trabajo/WGSNM/prueba5s8/work/
 
-      ***EL problema era el espacio en el nombre del disco duro, lo quitamos y ya funciona el prokka y el resto de programas como seroba que no funcionaban 
+      ***Tarda 20 h en hacer todo el proceso, el ensamblaje va perfecto y fastqc igual, solo hay 111 de 114 cepas que se pueden ensamblar. El problema es que el prokka, el seroba y pbptyper dan failed process y hace dos retrying hasta rendirse. 
+
+      ***EL problema era el espacio en el nombre del disco duro, lo quitamos y ya funciona el prokka y el resto de programas como seroba y pbptyper
 
       bactopia prepare --path /media/julio/JulioTrabajo/WGSNM/prueba5s8 --fastq-ext '_001.fastq.gz' --genome-size 2000000 > /media/julio/JulioTrabajo/WGSNM/prueba5s8/prueba5s8.txt 
 
