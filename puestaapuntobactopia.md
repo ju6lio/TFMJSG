@@ -109,6 +109,20 @@
 
 ## Prueba 7 Bactopia
 
+### MODULO ABRICATE
+
+       bactopia --wf abricate --bactopia /media/julio/JulioTrabajo/WGSNM/prueba5s8  --include /media/julio/JulioTrabajo/WGSNM/prueba5s8/prueba5s8.txt --abricate_db vfdb
+
+       
+
+### MODULO PANGENOME
+
+       bactopia --wf pangenome --use_roary --bactopia /media/julio/JulioTrabajo/WGSNM/prueba5s8  --include /media/julio/JulioTrabajo/WGSNM/prueba5s8/prueba5s8.txt --i 70 --s 
+
+       
+
+
+
 
 
 
