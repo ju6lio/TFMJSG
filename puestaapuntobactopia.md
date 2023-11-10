@@ -111,13 +111,20 @@
 
 ### MODULO ABRICATE
 
+      ***No me estaba saliendo pero al final modificado lo conseguí, se guarda como resultado individual de cada cepa y también como merged_results en la carpeta de merged_results
+      
        bactopia --wf abricate --bactopia /media/julio/JulioTrabajo/WGSNM/prueba5s8  --include /media/julio/JulioTrabajo/WGSNM/prueba5s8/prueba5s8.txt --abricate_db vfdb
-
        
 
 ### MODULO PANGENOME
 
+      ***Este aún lo tengo que probar bien, me decía que con tres cepas no era suficiente para hacer el pangenoma
+
        bactopia --wf pangenome --use_roary --bactopia /media/julio/JulioTrabajo/WGSNM/prueba5s8  --include /media/julio/JulioTrabajo/WGSNM/prueba5s8/prueba5s8.txt --i 70 --s 
+
+### MODULO SNIPPY
+
+      ***Me falta hacer bien el snippy, ver que se vean bien los SNPs, etc me hace falta las referencias cerradas, etc
 
        
 
