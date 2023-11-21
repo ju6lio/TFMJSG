@@ -626,8 +626,6 @@
 
 	cat * >> PRESENT404.fasta
 
-	//Se elimnan los alelos que nos sean 1 y se traduce a proteina en el Geneious para subir al EGGNOD-MAPPER
-
  
 ## 11.SCOARY
 ### 11.1.CC53+CC404+CC63 SPRLISCIII0973-08_shorted_100Ns(REF) ISCIII+HUB
@@ -638,12 +636,20 @@
 	scoary -g $BASEDIR/Roary/RoaryTodos-ISCIII-HUB/gene_presence_absence.csv -t $BASEDIR/Scoary/ScoaryTodos-ISCIII-HUB/TraitsCC.csv -o $BASEDIR/Scoary/ScoaryTodos-ISCIII-HUB --threads 1
 
  
- 
- 
+## 12. GENES CAPSULA S8
+### 12.1 MAPEAR READS A CLUSTER CAPSULAR S8
 
-bactopia \
-   --sample my-sample \
-   --r1 /path/to/my-sample_R1.fastq.gz \
-   --r2 /path/to/my-sample_R2.fastq.gz
+ 	FECHA: 09.11.2023
+
+ 	conda activate snippy
+
+  	mkdir -p $BASEDIR/Snippy/CapsulaS8ISCIII
+	
+ 	cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 1 snippy --cpus 30 --outdir $BASEDIR/Snippy/CapsulaS8ISCIII/{/}  --ref $BASEDIR/Reference_Genomes/CR931644.gbf --R1 $BASEDIR/Reads_Illumina*/$(echo {/})_*1.fastq.gz --R2 $BASEDIR/Reads_Illumina*/$(echo {/})_*2.fastq.gz
+
+
+### 12.2.CREAR UN ALINEAMIENTO CON SNIPPY-CORE
+		
+	snippy-core --prefix $BASEDIR/Snippy/CapsulaS8ISCIII/$BASENAME-ISCIII $BASEDIR/Snippy/CapsulaS8ISCIII/* --ref $BASEDIR/Reference_Genomes/CR931644.gbf
 
   
