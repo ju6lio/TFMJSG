@@ -114,18 +114,20 @@
       ***No me estaba saliendo pero al final modificado lo conseguí, se guarda como resultado individual de cada cepa y también como merged_results en la carpeta de merged_results
       
        bactopia --wf abricate --bactopia /media/julio/JulioTrabajo/WGSNM/prueba5s8  --include /media/julio/JulioTrabajo/WGSNM/prueba5s8/prueba5s8.txt --abricate_db vfdb
+
+       ***Pusimos vfdb pero se puede buscar en todas: ncbi, card, resist finder, etc. 
        
 
 ### MODULO PANGENOME
 
-      ***Este aún lo tengo que probar bien, me decía que con tres cepas no era suficiente para hacer el pangenoma
+      ***Nos mira el pangenoma, en este caso he utilizado un número de cepas muy bajo como para tener buenos resultados pero el es output del roary clásico.
 
        bactopia --wf pangenome --use_roary --bactopia /media/julio/JulioTrabajo/WGSNM/prueba5s8  --include /media/julio/JulioTrabajo/WGSNM/prueba5s8/prueba5s8.txt --i 70 --s 
 
 ### MODULO SNIPPY
 
       ***Me falta hacer bien el snippy, ver que se vean bien los SNPs, etc me hace falta las referencias cerradas, etc
-
+       bactopia --wf snippy bactopia /media/julio/JulioTrabajo/WGSNM/prueba5s8 include /media/julio/JulioTrabajo/WGSNM/prueba5s8/prueba5s8.txt --reference /media/julio/JulioTrabajo/WGSNM/SPRLISCIII0973-08sNs.gbf
        
 
 
