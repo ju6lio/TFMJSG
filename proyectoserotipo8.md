@@ -36,7 +36,7 @@
 ## 2.READS
 ### 2.1.READS IMPORTADO SECUENCIADOS POR ISCIII
 
-### 2.2.RENOMBRAR READA
+### 2.2.RENOMBRAR READS
 #### 2.2.1.DESCOMPRIMIR
  	FECHA: 02.11.2023
 
@@ -70,7 +70,7 @@
 	ls *_R1.fastq | parallel --jobs 25 gzip -9 {/}
  	ls *_R2.fastq | parallel --jobs 25 gzip -9 {/}
 
-#### 2.2.3. COPIAR READS HUB
+#### 2.2.3. COPIAR READS Hospital Universitario Bellvitge (HUB)
 
    	FECHA: 13.11.2023
 
@@ -83,11 +83,11 @@
 	cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 1 'docker run -u $(id -u):$(id -g) --rm -v /dades/usrs_home/aida:/data/ ummidock/innuca:4.2.0-05 INNUca.py -s "Streptococcus pneumoniae" -g 2.0 -f /data/$BASEDIR/Reads_Illumina/$(echo {/}"_1.fastq.gz") /data/$BASEDIR/Reads_Illumina/$(echo {/}"_2.fastq.gz") -j 60 --fastQCkeepFiles -o /data/$BASEDIR/Contigs_INNUca/{/}' 
 
    	FECHA: 06.11.2023
-    	//Bad perGC quality
+    	//Bad perGC quality, una de las cepas tuvimos que levantar la exception para que la ensamblase por mal GC %
      
 	docker run -u $(id -u):$(id -g) --rm -v /dades/usrs_home/aida:/data/ ummidock/innuca:4.2.0-05 INNUca.py -s "Streptococcus pneumoniae" -g 2.0 -f /data/$BASEDIR/Reads_Illumina/SPRLISCIII0421-20_1.fastq.gz /data/$BASEDIR/Reads_Illumina/SPRLISCIII0421-20_2.fastq.gz -j 60 --skipFastQC -o /data/$BASEDIR/Contigs_INNUca/SPRLISCIII0421-20
 
-    	FECHA: 02.11.2023	
+    	FECHA: 13.11.2023	
 
 	cat $BASEDIR/Listas/L_Genomas_HUB-JAC.txt | parallel --jobs 1 'docker run -u $(id -u):$(id -g) --rm -v /dades/usrs_home/aida:/data/ ummidock/innuca:4.2.0-05 INNUca.py -s "Streptococcus pneumoniae" -g 2.0 -f /data/$BASEDIR/Reads_Illumina_HUB/$(echo {/}"_1.fastq.gz") /data/$BASEDIR/Reads_Illumina_HUB/$(echo {/}"_2.fastq.gz") -j 60 --fastQCkeepFiles -o /data/$BASEDIR/Contigs_INNUca/{/}' 
  
@@ -103,14 +103,12 @@
 ### 3.2.CREAR UNA CARPETA CON TODOS LOS FASTAS
 	FECHA: 06.11.2023
     	
-	cd
 	mkdir $BASEDIR/Contigs_INNUca/Fastas
 	cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 cp $BASEDIR/Contigs_INNUca/{/}/{/}/*ed.fasta $BASEDIR/Contigs_INNUca/Fastas
 
 #### 3.2.1.MOVER LOS ENSAMBLADOS DEL HUB-JAC A LA CARPETA 
 	FECHA: 13.11.2023
-    	
-	cd
+    	cd
 	cat $BASEDIR/Listas/L_Genomas_HUB-JAC.txt | parallel --jobs 2 cp $BASEDIR/Contigs_INNUca/{/}/{/}/*ed.fasta $BASEDIR/Contigs_INNUca/Fastas
 
 ### 3.3.RENOMBRAR FASTAS 
@@ -156,7 +154,6 @@
 	cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 mlst $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --legacy --scheme spneumoniae --csv >> $BASEDIR/Abricate/mlst.csv
 	conda deactivate
 
- ### 5.MLST
 	FECHA: 13.11.2023
 
 	conda activate mlst
@@ -240,7 +237,7 @@
 	roary $BASEDIR/Roary/RoaryTodos-ISCIII-CC404-HUB/GFF/*.gff -f $BASEDIR/Roary/RoaryTodos-ISCIII-CC404-HUB/ -e -n -v -s -p 30 -i 70 -cd 100
  
   ### 7.8.CC63 PARÁMETRO 100
-	FECHA: 07.11.2023
+	FECHA: 13.11.2023
  
 	mkdir -p $BASEDIR/Roary/RoaryTodos-ISCIII-CC63/GFF
  	cat $BASEDIR/Listas/L_Genomas_TodosISCIII-CC63.txt | parallel --jobs 1 cp $BASEDIR/Prokka/{/}/$(echo {/}).gff $BASEDIR/Roary/RoaryTodos-ISCIII-CC63/GFF
@@ -255,7 +252,7 @@
 
 	java -Xmx500m -cp $MAUVE/mauve_snapshot_2015-02-13/Mauve.jar org.gel.mauve.contigs.ContigOrderer -output /dades/usrs_home/aida/wgs/58_SPNE_Serotipo8JSG/Reference_Genomes -ref /dades/usrs_home/aida/wgs/58_SPNE_Serotipo8JSG/Reference_Genomes/TVO_1901948.gbk -draft /dades/usrs_home/aida/wgs/58_SPNE_Serotipo8JSG/Contigs_INNUca/Fastas/SPRLISCIII0370-07.fasta
 
- 	///REALMENTE SHORTED CON MAUVE VISUAL EN WINDOWS Y CONCATENADOS 100NS CON EL GENEIOUS
+
 
 #### 8.1.1. Anotar con PROKKA
 	FECHA: 08.11.2023
@@ -273,8 +270,6 @@
 
 	java -Xmx500m -cp $MAUVE/mauve_snapshot_2015-02-13/Mauve.jar org.gel.mauve.contigs.ContigOrderer -output /dades/usrs_home/aida/wgs/58_SPNE_Serotipo8JSG/Reference_Genomes -ref /dades/usrs_home/aida/wgs/58_SPNE_Serotipo8JSG/Reference_Genomes/TVO_1901948.gbk -draft /dades/usrs_home/aida/wgs/58_SPNE_Serotipo8JSG/Contigs_INNUca/Fastas/SPRLISCIII0930-08.fasta
 
-	 ///REALMENTE SHORTED CON MAUVE VISUAL EN WINDOWS Y CONCATENADOS 100NS CON EL GENEIOUS
-
  #### 8.2.1. Anotar con PROKKA
 	FECHA: 08.11.2023
 
@@ -290,7 +285,6 @@
 
 	java -Xmx500m -cp $MAUVE/mauve_snapshot_2015-02-13/Mauve.jar org.gel.mauve.contigs.ContigOrderer -output /dades/usrs_home/aida/wgs/58_SPNE_Serotipo8JSG/Reference_Genomes -ref /dades/usrs_home/aida/wgs/58_SPNE_Serotipo8JSG/Reference_Genomes/TVO_1901948.gbk -draft /dades/usrs_home/aida/wgs/58_SPNE_Serotipo8JSG/Contigs_INNUca/Fastas/SPRLISCIII0973-08.fasta
 
-///REALMENTE SHORTED CON MAUVE VISUAL EN WINDOWS Y CONCATENADOS 100NS CON EL GENEIOUS
 
  #### 8.3.1. Anotar con PROKKA
 	FECHA: 08.11.2023
@@ -301,7 +295,6 @@
 	prokka --outdir $BASEDIR/Reference_Genomes/Prokka/SPRLISCIII0973-08sNs --proteins $BASEDIR/Reference_Genomes/R6.faa --force --centre ISCIII --genus Streptococcus --species pneumoniae --strain SPRLISCIII0973-08sNs --cpus 2 --prefix SPRLISCIII0973-08sNs --locustag SPRLISCIII0973-08sNsp --compliant --addgenes --usegenus --rfam --increment 10 --mincontiglen 1 --gcode 11 --kingdom Bacteria $BASEDIR/Reference_Genomes/SPRLISCIII0973-08sNs.fasta
  
 ## 9.SNIPPY
-
 
 ### 9.1.MAPEAR
 #### 9.1.1.CC404 SPRLISCIII0930-08_shorted_100Ns(REF)
@@ -469,7 +462,7 @@
 	export COUNTNDIR=/dades/ngstools/count_N
 	perl $COUNTNDIR/count_N.pl < $BASEDIR/Snippy/Snippy-Todos-ISCIII+HUB-refCC53/Snippy-Todos-ISCIII+HUB-refCC53_full_N.fasta > $BASEDIR/Snippy/Snippy-Todos-ISCIII+HUB-refCC53/Snippy-Todos-ISCIII+HUB-refCC53_full_N_countN.txt
  
-### 9.5.Eliminar ficheros snps.bam
+### 9.5.Eliminar ficheros snps.bam \\PENDIENTE DE BORRAR DEL SERVIDOR
 	FECHA: xx.06.2023
 	
 	cd $BASEDIR/Snippy/RefT3T1/
@@ -500,14 +493,14 @@
 	run_gubbins.py $BASEDIR/Snippy/Snippy-CC63-ISCIII/$BASENAME-CC63-ISCIII_full_N_woref.fasta -p $BASEDIR/Gubbins/Gubbins-CC63-ISCIII/$BASENAME-CC63-ISCIII_full_N.gubbinsv3 --bootstrap 100 --transfer-bootstrap -f 40 -c 30 -v
 
 ### 10.4.CC404 SPRLISCIII0930-08_shorted_100Ns(REF) ISCIII+HUB
-	FECHA: 08.11.2023
+	FECHA: 13.11.2023
 	
 	conda activate new-gubbins (v3.0.0)
 	mkdir -p $BASEDIR/Gubbins/Gubbins-CC404-ISCIII+HUB
 	run_gubbins.py $BASEDIR/Snippy/Snippy-CC404-ISCIII/$BASENAME-CC404-ISCIII_HUB_full_N_woref.fasta -p $BASEDIR/Gubbins/Gubbins-CC404-ISCIII+HUB/$BASENAME-CC404-ISCIII+HUB_full_N.gubbinsv3 --bootstrap 100 --transfer-bootstrap -f 40 -c 30 -v
 
 ### 10.5.CC53 SPRLISCIII0973-08_shorted_100Ns(REF) ISCIII+HUB
-	FECHA: 09.11.2023
+	FECHA: 13.11.2023
 	
 	conda activate new-gubbins (v3.0.0)
 	mkdir $BASEDIR/Gubbins/Gubbins-CC53-ISCIII+HUB
@@ -643,64 +636,10 @@
  	mkdir -p $BASEDIR/Scoary/ScoaryTodos-ISCIII-HUB
 	conda activate scoary 
 	scoary -g $BASEDIR/Roary/RoaryTodos-ISCIII-HUB/gene_presence_absence.csv -t $BASEDIR/Scoary/ScoaryTodos-ISCIII-HUB/TraitsCC.csv -o $BASEDIR/Scoary/ScoaryTodos-ISCIII-HUB --threads 1
- 
- 
-/////////////////////////////////////////////////
 
-## 11. PIPELINE BACTOPIA
-	FECHA: 13.11.2023
-
-### 11.1 PREPARAR LISTA DE LECTURAS EN FORMATO BACTOPIA
-	FECHA: 13.11.2023
  
-	conda activate bactopia
-	bactopia prepare --path $BASEDIR/Reads_Illumina/ --genome-size 2000000 > $BASEDIR/Listas/BactopiaTodosISCIII.txt
-	conda deactivate
-
-### 11.2 LANZAR ENSAMBLAJE + MÓDULO MERLIN (INCLUYE SHOVILLE + FASTQC + MLST + ARMFINDERPLUS + MODULOS ESTREPTOS (PBPTYPER, PNEUMOCAT, SEROBA  Y DOS MÓDULOS DE S. suis y S. pyogenes)) 
-	FECHA: 13.11.2023
  
- 	mkdir  $BASEDIR/Contigs_Bactopia
-  
-	conda activate bactopia
-	bactopia --samples $BASEDIR/Listas/BactopiaTodosISCIII.txt --ask_merlin --outdir $BASEDIR/Contigs_Bactopia
-	conda deactivate
-
-### 11.3 ABRICATE
-	FECHA: XX.11.2023
  
-	conda activate bactopia
- 	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/BactopiaTodosISCIII.txt --abricate_db ncbi
-   	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/BactopiaTodosISCIII.txt --abricate_db card
-     	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/BactopiaTodosISCIII.txt --abricate_db plasmidfinder
-       	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/BactopiaTodosISCIII.txt --abricate_db argannot
- 	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/BactopiaTodosISCIII.txt --abricate_db resfinder
-	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/BactopiaTodosISCIII.txt --abricate_db vfdb
-	conda deactivate
- 
-### 11.3 ROARY
-	FECHA: XX.11.2023
- 
- 	conda activate bactopia
- 	bactopia --wf pangenome --use_roary --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/BactopiaTodosISCIII.txt --i 70 --s
-	conda deactivate
- 
-### 11.4 SNIPPY Y GUBBINS  //AÚN NO HE HECHO LA PRUEBA DE ESTE ESPERAR A HACERLA EN MI PORTÁTIL
-	FECHA: XX.11.2023
- 
- 	conda activate bactopia
-  	bactopia --wf snippy --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/BactopiaTodosISCIII.txt --reference (path to reference) --
-  	
-	conda deactivate
-
-bactopia \
---r1 $BASEDIR/Reads_Illumina/SPRLISCIII5027-16_R1.fastq.gz \
---r2 $BASEDIR/Reads_Illumina/SPRLISCIII5027-16_R2.fastq.gz \
---sample SPRLISCIII5027-16 \
---genome_size 2000000 \
---outdir $BASEDIR/Contigs_Bactopia \
---ask_merlin 
-
 
 bactopia \
    --sample my-sample \
