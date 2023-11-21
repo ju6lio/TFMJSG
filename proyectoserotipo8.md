@@ -6,7 +6,7 @@
 ## 1.PREPARACION ARCHIVOS
 	FECHA: 02.11.2023
 
-	export BASEDIR=wgs/58_SPNE_Serotipo8JSG
+	export BASEDIR=wgs/58_SPNE_Serotipo8JSG``
  	export BASENAME=58_SPNE_Serotipo8JSG
 	mkdir -p $BASEDIR/Reads_Illumina
 	mkdir $BASEDIR/Listas
