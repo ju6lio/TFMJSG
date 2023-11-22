@@ -7,8 +7,8 @@ SERVER USER: PORTÁTIL JULIO
 ## 1.PREPARACION ARCHIVOS
 FECHA: 22.11.2023
 
-	export BASEDIR=/media/julio/WGSNM/WGS/1_serotipo3
-	export BASENAME=1_serotipo3
+	export BASEDIR=/media/julio/WGSNM/WGS/P001serotipo3
+	export BASENAME=P001serotipo3
 	mkdir -p $BASEDIR/Reads_Illumina
 	mkdir $BASEDIR/Listas
  
@@ -19,11 +19,11 @@ FECHA: 22.11.2023
 	for f in * ; do mv "$f" "${f//_001/}" ; done
 	for f in * ; do mv "$f" "${f//_S*_R/_R}" ; done
 
-	set -- $( cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt )
-	for N in `cat $BASEDIR/Listas/L_Genomas_Oldnames.txt`
+	set -- $( cat $BASEDIR/Listas/P001serotipo3NewNamesISCIII.txt)
+	for N in `cat $BASEDIR/Listas/P001serotipo3OldNamesISCIII.txt`
 	do
-    		 mv /dades/usrs_home/aida/$BASEDIR/Reads_Illumina/$N"_R1.fastq" /dades/usrs_home/aida/$BASEDIR/Reads_Illumina/$1"_R1.fastq"
-   		 mv /dades/usrs_home/aida/$BASEDIR/Reads_Illumina/$N"_R2.fastq" /dades/usrs_home/aida/$BASEDIR/Reads_Illumina/$1"_R2.fastq"
+    		 mv $BASEDIR/Reads_Illumina/$N"_R1.fastq" $BASEDIR/Reads_Illumina/$1"_R1.fastq"
+   		 mv $BASEDIR/Reads_Illumina/$N"_R2.fastq" $BASEDIR/Reads_Illumina/$1"_R2.fastq"
 	shift
 	done
  
