@@ -15,15 +15,18 @@ FECHA: 22.11.2023
 ## 1.1. RENOMBAR READS
 FECHA: 22.11.2023
 
+	***Creamos las listas con los nombres de la carrera y los nombres nuevos
+ 	nano $BASEDIR/Listas/P001serotipo3OldNamesISCIII.txt
+  	nano $BASEDIR/Listas/P001serotipo3NewNamesISCIII.txt
+
 	cd $BASEDIR/Reads_Illumina
 	for f in * ; do mv "$f" "${f//_001/}" ; done
-	for f in * ; do mv "$f" "${f//_S*_R/_R}" ; done
 
 	set -- $( cat $BASEDIR/Listas/P001serotipo3NewNamesISCIII.txt)
 	for N in `cat $BASEDIR/Listas/P001serotipo3OldNamesISCIII.txt`
 	do
-    		 mv $BASEDIR/Reads_Illumina/$N"_R1.fastq" $BASEDIR/Reads_Illumina/$1"_R1.fastq"
-   		 mv $BASEDIR/Reads_Illumina/$N"_R2.fastq" $BASEDIR/Reads_Illumina/$1"_R2.fastq"
+    		 mv $BASEDIR/Reads_Illumina/$N"_R1.fastq.gz" $BASEDIR/Reads_Illumina/$1"_R1.fastq.gz"
+   		 mv $BASEDIR/Reads_Illumina/$N"_R2.fastq.gz" $BASEDIR/Reads_Illumina/$1"_R2.fastq.gz"
 	shift
 	done
  
