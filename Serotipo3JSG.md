@@ -37,14 +37,16 @@ FECHA: 22.11.2023
 ## 1.3. CREACION LISTA FORMATO FOFN
 FECHA: 22.11.2023
 
+ 	cd
  	conda activate bactopia
-	bactopia prepare --path $BASEDIR/Reads_Illumina/ --fastq-ext '_001.fastq.gz' --genome-size 2000000 > $BASEDIR/Listas/1_serotipo3_TodosISCIII.txt
+	bactopia prepare --path $BASEDIR/Reads_Illumina/ --genome-size 2000000 > $BASEDIR/Listas/P001serotipo3TodosISCIII.txt
  	conda deactivate
 
 ## 2. LANZAR ENSAMBLAJE + MÓDULO MERLIN
 FECHA: 22.11.2023
 
 	mkdir $BASEDIR/Contigs_Bactopia
+
 	conda activate bactopia
-	bactopia --samples $BASEDIR/Listas/1_serotipo3_TodosISCIII.txt --ask_merlin --outdir $BASEDIR/Contigs_Bactopia
+	bactopia --samples $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --ask_merlin --outdir $BASEDIR/Contigs_Bactopia -work-dir $BASEDIR/work
 	conda deactivate
