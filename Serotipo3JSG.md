@@ -16,7 +16,7 @@ FECHA: 22.11.2023
 FECHA: 22.11.2023
 
  	conda activate bactopia
-	bactopia prepare --path $BASEDIR/Reads_Illumina/ --genome-size 2000000 > $BASEDIR/Listas/1_serotipo3_TodosISCIII.txt
+	bactopia prepare --path $BASEDIR/Reads_Illumina/ --fastq-ext '_001.fastq.gz' --genome-size 2000000 > $BASEDIR/Listas/1_serotipo3_TodosISCIII.txt
  	conda deactivate
 
 ## 1.2. LANZAR ENSAMBLAJE + MÓDULO MERLIN
