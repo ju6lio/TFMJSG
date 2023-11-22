@@ -12,7 +12,23 @@ FECHA: 22.11.2023
 	mkdir -p $BASEDIR/Reads_Illumina
 	mkdir $BASEDIR/Listas
  
- ## 1.1.CREACION LISTA FORMATO FOFN
+## 1.1. RENOMBAR READS
+FECHA: 22.11.2023
+
+	cd $BASEDIR/Reads_Illumina
+	for f in * ; do mv "$f" "${f//_001/}" ; done
+	for f in * ; do mv "$f" "${f//_S*_R/_R}" ; done
+
+	set -- $( cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt )
+	for N in `cat $BASEDIR/Listas/L_Genomas_Oldnames.txt`
+	do
+    		 mv /dades/usrs_home/aida/$BASEDIR/Reads_Illumina/$N"_R1.fastq" /dades/usrs_home/aida/$BASEDIR/Reads_Illumina/$1"_R1.fastq"
+   		 mv /dades/usrs_home/aida/$BASEDIR/Reads_Illumina/$N"_R2.fastq" /dades/usrs_home/aida/$BASEDIR/Reads_Illumina/$1"_R2.fastq"
+	shift
+	done
+ 
+
+## 1.2. CREACION LISTA FORMATO FOFN
 FECHA: 22.11.2023
 
  	conda activate bactopia
