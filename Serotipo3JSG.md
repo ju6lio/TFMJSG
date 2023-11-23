@@ -59,4 +59,36 @@ Duration    : 13h 30m 1s
 CPU hours   : 151.0
 Succeeded   : 2'238
 
+FECHA: 23.11.2023
+
 Ensambla cada cepa entre 4-5 minutos. De los 175 genomas que metimos, ha tenido success ensamblado 171 de los 175. Había unas lecturas con muy poca calidad así que no es de extrañar.
+Las cepas que no se ensamblaron fueron:
+
+SPRLISCIII0739-09-> no hay lecturas suficientes, no llega al coverage mínimo de 10X
+SPRLISCIII0941-08-> no hay lecturas sufucientes
+SPRLISCIII5053-16-> no hay lecturas suficientes
+SPRLISCIII6043-18-> read count error, no hay las mismas lecturas en R1 y R2, son muy diferentes los números. No sigue con el pipeline de ensamblaje.
+
+La siguiente cepa:
+GENOME	YEAR	AGE	LABORATORY	HOSPITAL	GPSC	CC	ST	aroE	gdh	gki	recP	spi	xpt	ddl
+SPRLISCIII2374-10	2010	79,00	LRSP	LRSP	31	CC306	-	12	8	13	575?	16	4	20	
+Era rara porque tenía un perfil de MLST que se asimilaba más al 1.
+Al comprobar el seroba nos indica que es un serotipo 1 y que detecta contaminación. En el pneumocat se ve 99% serotipo 1 y 95% serotipo 3. Esto nos indica que ha habido una contaminación con otro neumo en la extracción. La descartamos para el análisis
+
+## 3. ABRICATE
+FECHA: 23.11.2023
+
+Vamos a lanzar Abricate, con todas las bases de datos que tiene, para completar la información que hemos obtenido con el mlst PBPtyper, seroba, etc en el pipeline general
+
+	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db vfdb -work-dir $BASEDIR/work
+	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db card -work-dir $BASEDIR/work
+	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db argannot -work-dir $BASEDIR/work
+ 	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db resfinder -work-dir $BASEDIR/work
+
+
+ ncbi --csv > $BASEDIR/Abricate/ncbi.csv
+cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db card  --csv > $BASEDIR/Abricate/card.csv
+cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db plasmidfinder --csv > $BASEDIR/Abricate/plasmidfinder.csv
+cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db argannot --csv > $BASEDIR/Abricate/argannot.csv
+cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db resfinder --csv > $BASEDIR/Abricate/resfinder.csv
+cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db vfdb --csv >
