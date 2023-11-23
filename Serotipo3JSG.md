@@ -69,6 +69,12 @@ SPRLISCIII0941-08-> no hay lecturas sufucientes
 SPRLISCIII5053-16-> no hay lecturas suficientes
 SPRLISCIII6043-18-> read count error, no hay las mismas lecturas en R1 y R2, son muy diferentes los números. No sigue con el pipeline de ensamblaje.
 
+La 6043 se vuelve a intentar:
+
+	bactopia --r1 $BASEDIR/Reads_Illumina/SPRLISCIII6043-18_R1.fastq.gz --r2 $BASEDIR/Reads_Illumina/SPRLISCIII6043-18_R2.fastq.gz  --sample SPRLISCIII6043-18 --genome_size 2000000 --ask_merlin --outdir $BASEDIR/Contigs_Bactopia
+
+Sigue dando el mismo error, así que no la podemos ensamblar y la descartamos del análisis.
+
 La siguiente cepa:
 GENOME	YEAR	AGE	LABORATORY	HOSPITAL	GPSC	CC	ST	aroE	gdh	gki	recP	spi	xpt	ddl
 SPRLISCIII2374-10	2010	79,00	LRSP	LRSP	31	CC306	-	12	8	13	575?	16	4	20	
