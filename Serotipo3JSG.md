@@ -19,6 +19,13 @@ FECHA: 22.11.2023
  	nano $BASEDIR/Listas/P001serotipo3OldNamesISCIII.txt
   	nano $BASEDIR/Listas/P001serotipo3NewNamesISCIII.txt
 
+FECHA: 23.11.2023
+
+Creamos listas para el pangenoma
+
+  	nano $BASEDIR/Listas/P001serotipo3roaryTODOS.txt
+
+   
 ## 1.2. RENOMBAR READS
 FECHA: 22.11.2023
 
@@ -91,4 +98,13 @@ Vamos a lanzar Abricate, con todas las bases de datos que tiene, para completar 
 	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db argannot -work-dir $BASEDIR/work
  	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db resfinder -work-dir $BASEDIR/work
    	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db plasmidfinder -work-dir $BASEDIR/work
+
+## 4. ROARY
+## 4.1. ROARY TODOS
+FECHA: 23.11.2023
+
+	conda activate bactopia
+	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.txt --use_roary --i 70 --s
+	conda deactivate
+
 
