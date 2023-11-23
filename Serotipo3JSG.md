@@ -50,3 +50,13 @@ FECHA: 22.11.2023
 	conda activate bactopia
 	bactopia --samples $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --ask_merlin --outdir $BASEDIR/Contigs_Bactopia -work-dir $BASEDIR/work
 	conda deactivate
+
+
+El ensamblaje funciona sin problemas:
+
+Completed at: 23-Nov-2023 05:35:44
+Duration    : 13h 30m 1s
+CPU hours   : 151.0
+Succeeded   : 2'238
+
+Ensambla cada cepa entre 4-5 minutos. De los 175 genomas que metimos, ha tenido success ensamblado 171 de los 175. Había unas lecturas con muy poca calidad así que no es de extrañar.
