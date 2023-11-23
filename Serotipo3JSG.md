@@ -90,11 +90,5 @@ Vamos a lanzar Abricate, con todas las bases de datos que tiene, para completar 
 	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db card -work-dir $BASEDIR/work
 	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db argannot -work-dir $BASEDIR/work
  	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db resfinder -work-dir $BASEDIR/work
+   	bactopia --wf abricate --bactopia $BASEDIR/Contigs_Bactopia  --include $BASEDIR/Listas/P001serotipo3TodosISCIII.txt --abricate_db plasmidfinder -work-dir $BASEDIR/work
 
-
- ncbi --csv > $BASEDIR/Abricate/ncbi.csv
-cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db card  --csv > $BASEDIR/Abricate/card.csv
-cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db plasmidfinder --csv > $BASEDIR/Abricate/plasmidfinder.csv
-cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db argannot --csv > $BASEDIR/Abricate/argannot.csv
-cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db resfinder --csv > $BASEDIR/Abricate/resfinder.csv
-cat $BASEDIR/Listas/L_Genomas_TodosISCIII.txt | parallel --jobs 2 abricate $BASEDIR/Contigs_INNUca/Fastas/$(echo {/}".fasta") --db vfdb --csv >
