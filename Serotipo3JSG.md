@@ -24,6 +24,10 @@ FECHA: 23.11.2023
 Creamos listas para el pangenoma
 
   	nano $BASEDIR/Listas/P001serotipo3roaryTODOS.txt
+   
+   	nano $BASEDIR/Listas/P001serotipo3roaryCC180.txt
+
+    	nano $BASEDIR/Listas/P001serotipo3roaryCC260.txt
 
    
 ## 1.2. RENOMBAR READS
@@ -107,4 +111,16 @@ FECHA: 23.11.2023
 	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.txt --use_roary --i 70 --s -work-dir $BASEDIR/work
 	conda deactivate
 
+## 4.2. ROARY CC180
+FECHA: 23.11.2023
 
+	conda activate bactopia
+	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryCC180.txt --use_roary --i 70 --s -work-dir $BASEDIR/work
+	conda deactivate
+
+ ## 4.3. ROARY CC260
+FECHA: 23.11.2023
+
+	conda activate bactopia
+	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryCC260.txt --use_roary --i 70 --s -work-dir $BASEDIR/work
+	conda deactivate
