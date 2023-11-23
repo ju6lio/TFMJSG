@@ -104,7 +104,7 @@ Vamos a lanzar Abricate, con todas las bases de datos que tiene, para completar 
 FECHA: 23.11.2023
 
 	conda activate bactopia
-	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.txt --use_roary --i 70 --s
+	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.txt --use_roary --i 70 --s -work-dir $BASEDIR/work
 	conda deactivate
 
 
