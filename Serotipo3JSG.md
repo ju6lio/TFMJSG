@@ -128,24 +128,24 @@ FECHA: 23.11.2023
  ## 5. ROPROFILE
 FECHA: 24.11.2023
 
+PARA USAR EL SCRIPT PYTHON ROPROFILE HE TENIDO QUE CREAR UN ENVIRONMENT EN CONDA PARA QUE LO PUDIESE EJECUTAR CORRECTAMENTE
+	conda create --name roProfile python=2.7 biopython matplotlib mpld3 pandas 
+
+PARA EJECUTARLO
+	
 	export ROPROFILEDIR=/home/julio/NGSTOOLS/roProfile
  	mkdir -p $BASEDIR/RoProfile/RoProfileTodos-ISCIII-HUB/
   	mkdir -p $BASEDIR/RoProfile/GFFfiles
    
    	cp $BASEDIR/Contigs_Bactopia/*/main/annotator/prokka/*.gff.gz $BASEDIR/RoProfile/GFFfiles
     	cd $BASEDIR/RoProfile/GFFfiles
-     	gzip -z *
+     	gzip -d *
     
+	conda activate roProfile
+ 
+	$ROPROFILEDIR/roProfile.py -r $BASEDIR/P001serotipo3/Contigs_Bactopia/bactopia-runs/pangenome-TODOS/roary/ -d $BASEDIR/RoProfile/GFFfiles/
 
-	$ROPROFILEDIR/roProfile.py -r $BASEDIR/P001serotipo3/Contigs_Bactopia/bactopia-runs/pangenome-TODOS/roary -d $BASEDIR/Roary/RoaryTodos-ISCIII-HUB/GFF/ -g
-
-
+	conda deactivate roProfile
  
 
 
-mv sequences $BASEDIR/RoProfile/RoProfileTodos-ISCIII-HUB/
-mv fre* $BASEDIR/RoProfile/RoProfileTodos-ISCIII-HUB/
-mv pan* $BASEDIR/RoProfile/RoProfileTodos-ISCIII-HUB/ 
-mv rem* $BASEDIR/RoProfile/RoProfileTodos-ISCIII-HUB/
-mv run* $BASEDIR/RoProfile/RoProfileTodos-ISCIII-HUB/ 
-mv cle* $BASEDIR/RoProfile/RoProfileTodos-ISCIII-HUB/ 
