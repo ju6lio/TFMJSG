@@ -150,3 +150,7 @@ PARA EJECUTARLO
  
 ## 6. SCOARY
 FECHA: 24.11.2023
+
+Para el scoary tenemos que crear un archivo .cvs con lo que queremos comparar. Creamos archivo csv para comprar CC180 y CC260, las cuatro cepas de distintos CCs serán 00
+
+	bactopia --wf scoary --bactopia $BASEDIR/Contigs_Bactopia --include  $BASEDIR/Listas/P001serotipo3roaryTODOS.txt  --traits $BASEDIR/Listas/scoarytodos.csv 
