@@ -146,11 +146,30 @@ PARA EJECUTARLO
  
 	$ROPROFILEDIR/roProfile.py -r $BASEDIR/P001serotipo3/Contigs_Bactopia/bactopia-runs/pangenome-TODOS/roary/ -d $BASEDIR/RoProfile/GFFfiles/
 
-	conda deactivate roProfile
+	conda deactivate
  
 ## 6. SCOARY
 FECHA: 24.11.2023
 
 Para el scoary tenemos que crear un archivo .cvs con lo que queremos comparar. Creamos archivo csv para comprar CC180 y CC260, las cuatro cepas de distintos CCs serán 00
 
-	bactopia --wf scoary --bactopia $BASEDIR/Contigs_Bactopia --include  $BASEDIR/Listas/P001serotipo3roaryTODOS.txt  --traits $BASEDIR/Listas/scoarytodos.csv 
+En Bactopia supuestamente se podía hacer el scoary, en documentación al buscar aparece pero en overview general y los modulos que dispone bactopia v3.3 mirado en la consola, no aparece ese modulo.
+
+conda activate bactopia
+bactopia --wf scoary --bactopia $BASEDIR/Contigs_Bactopia --include  $BASEDIR/Listas/P001serotipo3roaryTODOS.txt  --traits $BASEDIR/Listas/scoarytodos.csv 
+conda deactivate
+
+Instalamos scoary en PC y hacemos scoary con la herramienta directmente
+
+	conda create --name scoary
+ 	sudo apt install scoary
+  
+	conda activate scoary
+  	scoary -g $BASEDIR/Contigs_Bactopia/bactopia-runs/pangenome-TODOS/roary/gene_presence_absence.csv -t $BASEDIR/Listas/scoarytodos.csv -o $BASEDIR/
+   	conda deactivate
+
+    
+
+
+  
+
