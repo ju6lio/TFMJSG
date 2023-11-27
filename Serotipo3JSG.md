@@ -168,7 +168,10 @@ Instalamos scoary en PC y hacemos scoary con la herramienta directmente
   	scoary -g $BASEDIR/Contigs_Bactopia/bactopia-runs/pangenome-TODOS/roary/gene_presence_absence.csv -t $BASEDIR/Listas/scoarytodos.csv -o $BASEDIR/
    	conda deactivate
 
-    
+
+## 7. SNIPPY
+FECHA: 27.11.2023
+	bactopia --wf snippy --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.tx --reference $BASEDIR/References/OXC141.gb --gubbin_opts	'-bootstrap 100 --transfer-bootstrap -f 40' -work-dir $BASEDIR/work
 
 
   
