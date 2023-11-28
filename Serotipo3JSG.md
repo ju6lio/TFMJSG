@@ -188,5 +188,8 @@ A partir de ahora vamos a añadir también la opción de --cleanup_workdir, para
 
 
 
-  conda create --name gubbins python=3.9 gubbins=3.1.1
+  conda create --name gubbins python=3.9
+
+
+
 
