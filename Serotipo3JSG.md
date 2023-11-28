@@ -92,6 +92,16 @@ SPRLISCIII2374-10	2010	79,00	LRSP	LRSP	31	CC306	-	12	8	13	575?	16	4	20
 Era rara porque tenía un perfil de MLST que se asimilaba más al 1.
 Al comprobar el seroba nos indica que es un serotipo 1 y que detecta contaminación. En el pneumocat se ve 99% serotipo 1 y 95% serotipo 3. Esto nos indica que ha habido una contaminación con otro neumo en la extracción. La descartamos para el análisis
 
+### 2.1 COPIAR FICHERS FASTA A UNA CARPETA
+FECHA 28.11.2023
+
+ 	mkdir $BASEDIR/Ensamblajes
+
+	cp $BASEDIR/Contigs_Bactopia/*/main/assembler/*.fna.gz $BASEDIR/Ensamblajes
+  	cd $BASEDIR/Ensamblajes
+     	gzip -d *
+
+
 ## 3. ABRICATE
 FECHA: 23.11.2023
 
@@ -177,5 +187,6 @@ A partir de ahora vamos a añadir también la opción de --cleanup_workdir, para
 	bactopia --wf snippy --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.tx --reference $BASEDIR/References/OXC141.gb --gubbin_opts	'-bootstrap 100 --transfer-bootstrap -f 40' -work-dir $BASEDIR/work
 
 
-  
+
+  conda create --name gubbins python=3.9 gubbins=3.1.1
 
