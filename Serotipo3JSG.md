@@ -184,11 +184,11 @@ FECHA: 27.11.2023
 
 A partir de ahora vamos a añadir también la opción de --cleanup_workdir, para no tener que borrar manualmente la carpeta work
 
-	bactopia --wf snippy --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.tx --reference $BASEDIR/References/OXC141.gb --gubbin_opts	'-bootstrap 100 --transfer-bootstrap -f 40' -work-dir $BASEDIR/work
+	bactopia --wf snippy --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.txt --reference $BASEDIR/References/OXC141.gb --gubbin_opts	'--bootstrap 100 --transfer-bootstrap -f 40' -work-dir $BASEDIR/work --cleanup_workdir
+
+ 
 
 
-
-  conda create --name gubbins python=3.9
 
 
 
