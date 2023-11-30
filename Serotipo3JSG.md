@@ -180,9 +180,21 @@ Instalamos scoary en PC y hacemos scoary con la herramienta directmente
 
 
 ## 7. SNIPPY
-FECHA: 27.11.2023
+FECHA: 30.11.2023
 
 A partir de ahora vamos a añadir también la opción de --cleanup_workdir, para no tener que borrar manualmente la carpeta work
+
+Hubo un error en el pipeline, del cuál levante el siguiente ticket: https://github.com/bactopia/bactopia/issues/465 y otro usuario me dio la solución temporal hasta que arreglen el error del pipeline:
+
+
+I found the same error, I think there has to be an issue of dependencies, specially with libvcflib1. Nevertheless, I solve the problem installing in local again the libvcflib1.
+
+apt-get update
+apt-get install libvcflib1
+
+I hope this will be helpful for you meanwhile the developers try to fix it :)
+
+Volvemos a hacerlo:
 
 	bactopia --wf snippy --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.txt --reference $BASEDIR/References/OXC141.gb --gubbin_opts	'--bootstrap 100 --transfer-bootstrap -f 40' -work-dir $BASEDIR/work --cleanup_workdir
 
