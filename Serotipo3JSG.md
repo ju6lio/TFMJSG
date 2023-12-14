@@ -35,6 +35,7 @@ FECHA: 22.11.2023
 
 	cd $BASEDIR/Reads_Illumina
 	for f in * ; do mv "$f" "${f//_001/}" ; done
+ 	for f in * ; do mv "$f" "${f//_S*_R/_R}" ; done
 
 	set -- $( cat $BASEDIR/Listas/P001serotipo3NewNamesISCIII.txt)
 	for N in `cat $BASEDIR/Listas/P001serotipo3OldNamesISCIII.txt`
