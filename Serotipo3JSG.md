@@ -119,21 +119,21 @@ Vamos a lanzar Abricate, con todas las bases de datos que tiene, para completar 
 FECHA: 23.11.2023
 
 	conda activate bactopia
-	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.txt --use_roary --i 70 --cd 100 --s -work-dir $BASEDIR/work
+	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.txt --use_roary --i 70 --cd 100 --s -work-dir $BASEDIR/work  --cleanup_workdir
 	conda deactivate
 
 ## 4.2. ROARY CC180
 FECHA: 23.11.2023
 
 	conda activate bactopia
-	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryCC180.txt --use_roary --i 70 --cd 100 --s -work-dir $BASEDIR/work
+	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryCC180.txt --use_roary --i 70 --cd 100 --s -work-dir $BASEDIR/work --cleanup_workdir
 	conda deactivate
 
  ## 4.3. ROARY CC260
 FECHA: 23.11.2023
 
 	conda activate bactopia
-	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryCC260.txt --use_roary --i 70 --cd 100 --s -work-dir $BASEDIR/work
+	bactopia --wf pangenome --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryCC260.txt --use_roary --i 70 --cd 100 --s -work-dir $BASEDIR/work --cleanup_workdir
 	conda deactivate
 
  ## 5. ROPROFILE
