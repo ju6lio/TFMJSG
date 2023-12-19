@@ -652,4 +652,37 @@
 		
 	snippy-core --prefix $BASEDIR/Snippy/CapsulaS8ISCIII/$BASENAME-ISCIII $BASEDIR/Snippy/CapsulaS8ISCIII/* --ref $BASEDIR/Reference_Genomes/CR931644.gbf
 
+
+## 13. PIPELINE BACTOPIA
+	FECHA: 22.11.2023
+
+### 13.1 PREPARAR LISTA DE LECTURAS EN FORMATO BACTOPIA
+	FECHA: 22.11.2023
+ 
+	conda activate bactopia-aida
+	bactopia prepare --path $BASEDIR/Reads_Illumina/ --genome-size 2000000 > $BASEDIR/Listas/L_Genomas_BactopiaTodosISCIII.txt
+	conda deactivate
+
+### 13.2 LANZAR ENSAMBLAJE + MÓDULO MERLIN (INCLUYE SHOVILLE + FASTQC + MLST + ARMFINDERPLUS + MODULOS ESTREPTOS (PBPTYPER, PNEUMOCAT, SEROBA  Y DOS MÓDULOS DE S. suis y S. pyogenes)) 
+	FECHA: 22.11.2023
+ 
+ 	mkdir  $BASEDIR/Contigs_Bactopia
+  
+	conda activate bactopia
+	bactopia --samples $BASEDIR/Listas/L_Genomas_BactopiaTodosISCIII.txt --ask_merlin --outdir $BASEDIR/Contigs_Bactopia --cleanup_workdir --max_cpus 1 --max_memory 100 -qs 28
+	conda deactivate
+
+ 	FECHA: 29.11.2023
+ 
+ 	mkdir  $BASEDIR/Contigs_Bactopia2
+  
+	conda activate bactopia-aida
+	bactopia --samples $BASEDIR/Listas/L_Genomas_BactopiaTodosISCIII.txt --ask_merlin --outdir $BASEDIR/Contigs_Bactopia2 --cleanup_workdir --max_cpus 30 --max_memory 100
+	conda deactivate
+
+ ### 13.3 RESUMEN CALIDAD ENSAMBLAJES
+
+	bactopia summary \ 
+ 	--bactopia-path $BASEDIR/Contigs_Bactopia
+
   
