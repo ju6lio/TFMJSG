@@ -180,9 +180,9 @@ Instalamos scoary en PC y hacemos scoary con la herramienta directmente
    	conda deactivate
 
 
-## 7. SNIPPY
+## 7. SNIPPY + SNIPPY CORE + GUBBINS
+## 7.1. SNIPPY + SNIPPY CORE + GUBBINS TODOS
 FECHA: 30.11.2023
-
 A partir de ahora vamos a añadir también la opción de --cleanup_workdir, para no tener que borrar manualmente la carpeta work
 
 Hubo un error en el pipeline, del cuál levante el siguiente ticket: https://github.com/bactopia/bactopia/issues/465 y otro usuario me dio la solución temporal hasta que arreglen el error del pipeline:
@@ -197,10 +197,26 @@ I hope this will be helpful for you meanwhile the developers try to fix it :)
 
 Volvemos a hacerlo:
 
+ 	conda activate bactopia
+  
 	bactopia --wf snippy --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryTODOS.txt --reference $BASEDIR/References/OXC141.gb --gubbin_opts	'--bootstrap 100 --transfer-bootstrap -f 40' -work-dir $BASEDIR/work --cleanup_workdir
 
- 
+ 	conda deactivate
+  
+## 7.2. SNIPPY + SNIPPY CORE + GUBBINS CC180
 
+Vamos a hacer el snippy, snippy core y gubbins del CC180
+
+ 	conda activate bactopia
+  
+	bactopia --wf snippy --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3roaryCC180.txt --reference $BASEDIR/References/OXC141.gb --gubbin_opts	"--bootstrap 100 --transfer-bootstrap -f 40" -work-dir $BASEDIR/work --cleanup_workdir
+
+ 	conda deactivate
+  
+
+## 7.3. SNIPPY + SNIPPY CORE + GUBBINS CC260
+
+Del CC180 
 
 
 
