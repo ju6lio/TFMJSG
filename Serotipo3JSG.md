@@ -204,7 +204,7 @@ Volvemos a hacerlo:
  	conda deactivate
   
 ## 7.2. SNIPPY + SNIPPY CORE + GUBBINS CC180
-
+FECHA: 06.01.2024
 Vamos a hacer el snippy, snippy core y gubbins del CC180
 
  	conda activate bactopia
@@ -215,8 +215,15 @@ Vamos a hacer el snippy, snippy core y gubbins del CC180
   
 
 ## 7.3. SNIPPY + SNIPPY CORE + GUBBINS CC260
+FECHA: 06.01.2024
 
-Del CC180 
+Del CC260 no tenemos referencia así que cerramos el genoma más antiguo siguiendo la misma metodología que en el serotipo 8 y realizaremos el alineamiento con este.
+
+ 	conda activate bactopia
+  
+	bactopia --wf snippy --bactopia $BASEDIR/Contigs_Bactopia --include $BASEDIR/Listas/P001serotipo3snippyCC260.txt --reference $BASEDIR/References/SPRLISCIII0710-08Ns.gbf --gubbin_opts	"--bootstrap 100 --transfer-bootstrap -f 40" -work-dir $BASEDIR/work --cleanup_workdir
+
+ 	conda deactivate
 
 
 
